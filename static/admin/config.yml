@@ -1,0 +1,22 @@
+backend:
+  name: git-gateway
+
+publish_mode: editorial_workflow
+media_folder: static/uploads
+public_folder: uploads
+site_url: https://grizhlie-sveltekit-netlifycms.netlify.app/
+display_url: https://grizhlie-sveltekit-netlifycms.netlify.app/
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "/static/posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
+      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "thumbnail", widget: "image"}
+      - {label: "Body", name: "body", widget: "markdown"}
