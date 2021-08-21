@@ -4,10 +4,10 @@
     export const load = async () => {
         let allPosts = []
 
-        const postsData = await import.meta.glob('./*.md')
+        const postsData = await import.meta.glob('../../../static/posts/*.md')
         for (const path in postsData){
             let post = await postsData[path]()
-            let slug = path.replace(/^\./mg, "").replace(/.md/mg,"").replace(/\//mg,"")
+            let slug = post.default.title.toLowerCase().split(' ').join('-')
             allPosts = [...allPosts, {slug, ...post.default}]
         }
 
@@ -27,8 +27,7 @@
 </script>
 
 
-{#each allPosts as post}
-     <p>{post.title}</p>
-     <p>{post.slug}</p>
+{#each allPosts as {title, slug}}
+     <a href="/blog/{slug}">{title}</a>
      <!-- {@html post.body} -->
 {/each}
