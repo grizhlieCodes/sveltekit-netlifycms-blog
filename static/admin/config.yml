@@ -2,8 +2,8 @@ backend:
   name: git-gateway
 
 publish_mode: editorial_workflow
-media_folder: static/blog/uploads
-public_folder: blog/uploads
+media_folder: '/static/blog/uploads'
+public_folder: '/blog/uploads'
 site_url: https://grizhlie-sveltekit-netlifycms.netlify.app/
 display_url: https://grizhlie-sveltekit-netlifycms.netlify.app/
 
