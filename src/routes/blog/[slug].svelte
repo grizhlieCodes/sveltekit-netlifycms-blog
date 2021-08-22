@@ -8,7 +8,7 @@
         for (const path in allPosts){
             let data = await allPosts[path]()
             let tempPost = await data.default
-            // console.log(tempPost.default)
+            console.log(tempPost.default)
             let postSlug = await tempPost.title.toLowerCase().split(' ').join('-')
             console.log(postSlug)
             if(postSlug === slug){
